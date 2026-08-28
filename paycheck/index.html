@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <title>Until next payday</title>
+    
+    <style>:root{--ink: #1c1917;--muted: #57534e;--bg: #f4efe6;--paper: #fffcf7;--line: #e7e0d4;--safe: #0f5c3a;--safe-bg: #d9f0e3;--over: #8f1d1d;--over-bg: #f8d7d5;--focus: #1d4e89;--danger: #9f1239;--radius: 14px}*,*:before,*:after{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;font-size:16px;line-height:1.4}#app{min-height:100vh}.app{width:100%;max-width:430px;min-width:min(100%,360px);margin:0 auto;padding:16px 16px 40px;padding-top:max(16px,env(safe-area-inset-top));padding-bottom:max(40px,env(safe-area-inset-bottom))}h1,h2{margin:0 0 8px;font-weight:700;letter-spacing:-.02em}h1{font-size:1.45rem;line-height:1.2}h2{font-size:.95rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.lede,.hint,.note{margin:0 0 16px;color:var(--muted)}.hint,.note{font-size:.9rem}.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:0 0 12px}.hero{border-radius:var(--radius);padding:20px 16px 18px;margin:0 0 12px;text-align:center}.hero.safe{background:var(--safe);color:#f4fff8}.hero.over{background:var(--over);color:#fff7f6}.kicker{margin:0 0 8px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.amount{margin:0;font-size:2.35rem;font-weight:800;letter-spacing:-.04em;line-height:1.1;font-variant-numeric:tabular-nums}.until,.over-note{margin:10px 0 0;font-size:.95rem}.row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}.row:last-child{border-bottom:0}.row.total{font-weight:700;padding-top:12px}.row-name{min-width:0}.row-name small{display:block;color:var(--muted);font-weight:400}.sublist{margin:0;padding:0;list-style:none}.sublist li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.sublist li:last-child{border-bottom:0}.empty{margin:0;color:var(--muted)}label,.field{display:block;margin:0 0 12px;font-weight:600}.field-label{display:block;margin-bottom:6px}input,select,textarea,button{font:inherit}input[type=text],input[type=date],input[type=number],select{width:100%;min-height:44px;padding:8px 12px;border:1px solid #c4bdb2;border-radius:10px;background:#fff;color:var(--ink)}input:focus,select:focus,button:focus-visible{outline:3px solid var(--focus);outline-offset:1px}.cadence-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 16px}.cadence-grid button{min-height:52px;padding:8px 10px;border:2px solid #c4bdb2;border-radius:12px;background:#fff;color:var(--ink);font-weight:700}.cadence-grid button[aria-pressed=true]{border-color:var(--ink);background:#1c1917;color:#fff}.actions{display:grid;gap:8px}button.primary,button.secondary,button.danger,button.ghost{min-height:44px;width:100%;padding:10px 14px;border-radius:12px;border:0;font-weight:700}button.primary{background:var(--ink);color:#fff}button.secondary{background:#fff;color:var(--ink);border:1px solid #c4bdb2}button.danger{background:var(--danger);color:#fff}button.ghost{background:transparent;color:var(--danger);border:1px solid #e8b4c0}button:disabled{opacity:.45}.error{color:var(--danger);font-weight:700;margin:8px 0 0}.banner{background:#fff1c9;border:1px solid #e6d08a;color:#5c4a10;border-radius:12px;padding:10px 12px;margin:0 0 12px}.item{display:grid;gap:8px;padding:12px 0;border-top:1px solid var(--line)}.item:first-of-type{border-top:0}.item-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.item .full{grid-column:1 / -1}.confirm-box{background:#fff1f2;border:1px solid #f0c4cc;border-radius:12px;padding:12px;margin-top:8px}.disclaimer{margin:20px 4px 8px;font-size:.72rem;line-height:1.4;color:var(--muted);font-weight:400}@media print{body{background:#fff}.app{max-width:100%;padding:0}.no-print{display:none!important}.hero{border:2px solid #111;color:#111!important;background:#fff!important}.card{break-inside:avoid}}</style>
+  </head>
+  <body>
+    <div id="app"></div>
+  <script>(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))a(r);new MutationObserver(r=>{for(const i of r)if(i.type==="childList")for(const l of i.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&a(l)}).observe(document,{childList:!0,subtree:!0});function n(r){const i={};return r.integrity&&(i.integrity=r.integrity),r.referrerPolicy&&(i.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?i.credentials="include":r.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function a(r){if(r.ep)return;r.ep=!0;const i=n(r);fetch(r.href,i)}})();const J=/^(\d{4})-(\d{2})-(\d{2})$/;function Y(t){return t%4===0&&t%100!==0||t%400===0}function w(t,e){return e===2?Y(t)?29:28:e===4||e===6||e===9||e===11?30:31}function q(t,e,n){return!Number.isInteger(t)||!Number.isInteger(e)||!Number.isInteger(n)||t<1900||t>9999||e<1||e>12||n<1?!1:n<=w(t,e)}function f(t){const e=J.exec(t);if(!e)return null;const n=Number(e[1]),a=Number(e[2]),r=Number(e[3]);return q(n,a,r)?{y:n,m:a,d:r}:null}function K(t){return f(t)!==null}function p(t){return`${String(t.y).padStart(4,"0")}-${String(t.m).padStart(2,"0")}-${String(t.d).padStart(2,"0")}`}function M(t,e){const n=f(t);if(!n)throw new Error(`Invalid date: ${t}`);const a=Date.UTC(n.y,n.m-1,n.d)+e*864e5,r=new Date(a);return p({y:r.getUTCFullYear(),m:r.getUTCMonth()+1,d:r.getUTCDate()})}function X(t,e){return p({y:t,m:e,d:w(t,e)})}function D(t,e,n){const a=t*12+(e-1)+n,r=Math.floor(a/12),i=a%12+1;return{y:r,m:i}}function W(t,e,n){const a=w(t,e);return Math.min(n,a)}function U(t,e,n){return p({y:t,m:e,d:W(t,e,n)})}function b(t,e){const n=f(e);return n?t==="weekly"||t==="biweekly"?!0:t==="first_fifteenth"?n.d===1||n.d===15:t==="fifteenth_eom"?n.d===15||n.d===w(n.y,n.m):!1:!1}function _(t,e){if(!b(t,e))return null;const n=f(e);if(!n)return null;if(t==="weekly")return M(e,7);if(t==="biweekly")return M(e,14);if(t==="first_fifteenth"){if(n.d===1)return p({y:n.y,m:n.m,d:15});const r=D(n.y,n.m,1);return p({y:r.y,m:r.m,d:1})}if(n.d===15)return X(n.y,n.m);const a=D(n.y,n.m,1);return p({y:a.y,m:a.m,d:15})}function G(t,e){const n=[];let a=t.y,r=t.m;for(;a<e.y||a===e.y&&r<=e.m;){n.push({y:a,m:r});const i=D(a,r,1);a=i.y,r=i.m}return n}function z(t,e,n){const a=f(e),r=f(n);if(!a||!r||t<1||t>31)return!1;for(const{y:i,m:l}of G(a,r)){const c=U(i,l,t);if(c>=e&&c<n)return!0}return!1}function v(t){const e=f(t);return e?`${["January","February","March","April","May","June","July","August","September","October","November","December"][e.m-1]} ${e.d}, ${e.y}`:t}function Q(t){switch(t){case"weekly":return"Weekly";case"biweekly":return"Every 2 weeks";case"first_fifteenth":return"1st and 15th";case"fifteenth_eom":return"15th and month-end"}}const P=1e11;function T(t,e=P){return typeof t=="number"&&Number.isInteger(t)&&t>=0&&t<=e}function y(t){const e=t.trim().replace(/[$,]/g,"");if(!/^\d+(\.\d{1,2})?$/.test(e))return null;const[n,a=""]=e.split("."),r=(a+"00").slice(0,2),i=Number.parseInt(n,10),l=Number.parseInt(r,10);if(!Number.isFinite(i)||!Number.isFinite(l)||i>Math.floor(P/100))return null;const c=i*100+l;return c>P?null:c}function m(t){const e=t<0?"-":"",n=t<0?-t:t,a=Math.floor(n/100),r=n%100;return`${e}$${a.toLocaleString("en-US")}.${String(r).padStart(2,"0")}`}function h(t){const e=Math.floor(t/100),n=t%100;return n===0?String(e):`${e}.${String(n).padStart(2,"0")}`}function F(t){let e=0;for(const n of t)e+=n;return e}function Z(t,e,n){const a=f(e),r=f(n);if(!a||!r)return null;let i=a.y,l=a.m;for(;i<r.y||i===r.y&&l<=r.m;){const c=U(i,l,t);if(c>=e&&c<n)return c;l+=1,l===13&&(l=1,i+=1)}return null}function ee(t){const e=_(t.cadence,t.lastPayday);if(!e)return null;const n=[];for(const l of t.bills){if(!z(l.dueDay,t.lastPayday,e))continue;const c=Z(l.dueDay,t.lastPayday,e);c&&n.push({bill:l,dueISO:c})}n.sort((l,c)=>l.dueISO.localeCompare(c.dueISO)||l.bill.name.localeCompare(c.bill.name));const a=F(n.map(l=>l.bill.amountCents)),r=F(t.sinkingFunds.map(l=>l.amountCents)),i=t.incomeCents-a-r;return{lastPayday:t.lastPayday,nextPayday:e,incomeCents:t.incomeCents,billsDue:n,billsDueCents:a,sinkingFunds:t.sinkingFunds,sinkingCents:r,safeToSpendCents:i,overcommitted:i<0}}const O=1,C=30,I=8,te=["weekly","biweekly","first_fifteenth","fifteenth_eom"];function ne(t){return typeof t=="string"&&te.includes(t)}function B(t){return typeof t=="string"&&t.length>0&&t.length<=80}function ae(t){if(!t||typeof t!="object")return null;const e=t;if(!B(e.id)||typeof e.name!="string")return null;const n=e.name.trim();return n.length===0||n.length>80||!T(e.amountCents)||typeof e.dueDay!="number"||!Number.isInteger(e.dueDay)||e.dueDay<1||e.dueDay>31?null:{id:e.id,name:n,amountCents:e.amountCents,dueDay:e.dueDay}}function se(t){if(!t||typeof t!="object")return null;const e=t;if(!B(e.id)||typeof e.name!="string")return null;const n=e.name.trim();return n.length===0||n.length>80||!T(e.amountCents)?null:{id:e.id,name:n,amountCents:e.amountCents}}function j(t){if(!t||typeof t!="object")return null;const e=t;if(e.schemaVersion!==O||!ne(e.cadence)||typeof e.lastPayday!="string"||!K(e.lastPayday)||!b(e.cadence,e.lastPayday)||!T(e.incomeCents)||!Array.isArray(e.bills)||e.bills.length>C||!Array.isArray(e.sinkingFunds)||e.sinkingFunds.length>I)return null;const n=[],a=new Set;for(const i of e.bills){const l=ae(i);if(!l||a.has(l.id))return null;a.add(l.id),n.push(l)}const r=[];for(const i of e.sinkingFunds){const l=se(i);if(!l||a.has(l.id))return null;a.add(l.id),r.push(l)}return{schemaVersion:O,cadence:e.cadence,lastPayday:e.lastPayday,incomeCents:e.incomeCents,bills:n,sinkingFunds:r}}function L(){return typeof crypto<"u"&&typeof crypto.randomUUID=="function"?crypto.randomUUID():`id-${Date.now()}-${Math.floor(Math.random()*1e9)}`}const x="paycheck-flow-v1";function re(t){const e=t.getItem(x);if(e===null)return null;try{return j(JSON.parse(e))}catch{return null}}function H(t,e){t.setItem(x,JSON.stringify(e))}function ie(t){t.removeItem(x)}function le(t){return JSON.stringify(t,null,2)}function oe(t){try{return j(JSON.parse(t))}catch{return null}}function ue(t,e){const n=oe(e);return n?(H(t,n),{ok:!0,state:n}):{ok:!1}}const g=document.getElementById("app");if(!g)throw new Error("Missing #app");const k=window.localStorage,ce=[{id:"weekly",label:"Weekly"},{id:"biweekly",label:"Every 2 weeks"},{id:"first_fifteenth",label:"1st and 15th"},{id:"fifteenth_eom",label:"15th and month-end"}],s={screen:"setup",state:null,payDraft:null,setupCadence:"",setupPayday:"",setupIncome:"",error:"",notice:"",confirmClear:!1};function o(t){return t.replace(/[&<>"']/g,e=>{switch(e){case"&":return"&amp;";case"<":return"&lt;";case">":return"&gt;";case'"':return"&quot;";default:return"&#39;"}})}function $(t){return t==="first_fifteenth"?"Must be the 1st or the 15th.":t==="fifteenth_eom"?"Must be the 15th or the last day of that month.":t==="weekly"||t==="biweekly"?"Use the date you were last paid.":"Choose how often you are paid first."}function d(t){if(!b(t.cadence,t.lastPayday)||!_(t.cadence,t.lastPayday)){s.error=$(t.cadence);return}s.error="",s.state=t,s.payDraft={cadence:t.cadence,lastPayday:t.lastPayday,incomeText:h(t.incomeCents)},H(k,t)}function S(t){return s.payDraft??{cadence:t.cadence,lastPayday:t.lastPayday,incomeText:h(t.incomeCents)}}function E(t){if(!s.state)return;s.payDraft=t;const e=y(t.incomeText);if(e===null){s.error="Enter a valid dollar amount.",u();return}if(!b(t.cadence,t.lastPayday)){s.error=$(t.cadence),u();return}s.error="",d({...s.state,cadence:t.cadence,lastPayday:t.lastPayday,incomeCents:e}),u()}function de(t,e,n){if(!t)return;const a=document.getElementById(t);if(a&&(a.focus(),a instanceof HTMLInputElement&&e!==null&&n!==null&&a.type!=="date"))try{a.setSelectionRange(e,n)}catch{}}function u(){const t=document.activeElement,e=t instanceof HTMLElement?t.id:null,n=t instanceof HTMLInputElement?t.selectionStart:null,a=t instanceof HTMLInputElement?t.selectionEnd:null;g.innerHTML=s.screen==="setup"?V():fe(),de(e,n,a)}function R(t,e){return`<div class="cadence-grid" role="group" aria-label="Pay frequency">
+    ${ce.map(n=>`<button type="button" class="cadence" data-action="${e}-cadence" data-cadence="${n.id}" aria-pressed="${t===n.id}">${o(n.label)}</button>`).join("")}
+  </div>`}function V(){return`<main class="app">
+    <h1>What's left until your next payday?</h1>
+    <p class="lede">Enter this paycheck. You'll get one number: how much is safe to spend before you're paid again.</p>
+    <form class="card" data-form="setup">
+      <div class="field">
+        <span class="field-label">How often are you paid?</span>
+        ${R(s.setupCadence,"setup")}
+      </div>
+      <label>
+        <span class="field-label">Last payday</span>
+        <input id="setup-payday" type="date" name="lastPayday" value="${o(s.setupPayday)}" required />
+        <span class="hint">${o($(s.setupCadence))}</span>
+      </label>
+      <label>
+        <span class="field-label">This paycheck (USD)</span>
+        <input id="setup-income" type="text" name="income" inputmode="decimal" autocomplete="off" placeholder="0.00" value="${o(s.setupIncome)}" required />
+      </label>
+      ${s.error?`<p class="error" role="alert">${o(s.error)}</p>`:""}
+      <button class="primary" type="submit">See what's left</button>
+    </form>
+    ${N()}
+  </main>`}function fe(){const t=s.state;if(!t)return V();const e=ee(t);if(!e)return`<main class="app"><p class="error">This last payday does not match the selected schedule. Update it below.</p>${A(t)}${N()}</main>`;const n=e.overcommitted?"over":"safe",a=e.overcommitted?"OVERCOMMITTED":"SAFE TO SPEND UNTIL NEXT PAYDAY",r=e.overcommitted?'<p class="over-note">Bills and set-asides are more than this paycheck.</p>':"",i=e.billsDue.length===0?'<p class="empty">No bills due this period.</p>':`<ul class="sublist">${e.billsDue.map(c=>`<li><span class="row-name">${o(c.bill.name)}<small>Due ${o(v(c.dueISO))}</small></span><span>${o(m(c.bill.amountCents))}</span></li>`).join("")}</ul>`,l=e.sinkingFunds.length===0?"":`<ul class="sublist">${e.sinkingFunds.map(c=>`<li><span>${o(c.name)}</span><span>${o(m(c.amountCents))}</span></li>`).join("")}</ul>`;return`<main class="app">
+    ${s.notice?`<p class="banner" role="status">${o(s.notice)}</p>`:""}
+    <section class="hero ${n}">
+      <p class="kicker">${a}</p>
+      <p class="amount">${o(m(e.safeToSpendCents))}</p>
+      <p class="until">Next payday ${o(v(e.nextPayday))}</p>
+      ${r}
+    </section>
+
+    <section class="card">
+      <h2>Breakdown</h2>
+      <div class="row"><span>This paycheck</span><span>${o(m(e.incomeCents))}</span></div>
+      <div class="row"><span>Bills due this period</span><span>−${o(m(e.billsDueCents))}</span></div>
+      <div class="row"><span>Set aside this paycheck</span><span>−${o(m(e.sinkingCents))}</span></div>
+      <div class="row total"><span>${e.overcommitted?"Short":"Left to spend"}</span><span>${o(m(e.safeToSpendCents))}</span></div>
+      <p class="note">Period: ${o(v(e.lastPayday))} until ${o(v(e.nextPayday))} (next payday not included).</p>
+    </section>
+
+    <section class="card">
+      <h2>Bills due this period</h2>
+      ${i}
+    </section>
+
+    ${l?`<section class="card"><h2>Set aside this paycheck</h2>${l}</section>`:""}
+
+    ${A(t)}
+    ${me(t)}
+    ${pe(t)}
+    ${ye()}
+    ${N()}
+  </main>`}function A(t){const e=S(t);return`<section class="card no-print">
+    <h2>Paycheck</h2>
+    <p class="hint">${o(Q(e.cadence))}. After you get paid, update last payday.</p>
+    ${R(e.cadence,"main")}
+    <label>
+      <span class="field-label">Last payday</span>
+      <input id="main-payday" type="date" data-field="lastPayday" value="${o(e.lastPayday)}" />
+      <span class="hint">${o($(e.cadence))}</span>
+    </label>
+    <label>
+      <span class="field-label">This paycheck (USD)</span>
+      <input id="main-income" type="text" inputmode="decimal" autocomplete="off" data-field="income" value="${o(e.incomeText)}" />
+    </label>
+    ${s.error?`<p class="error" role="alert">${o(s.error)}</p>`:""}
+  </section>`}function me(t){const e=t.bills.map(a=>`<div class="item" data-bill-id="${o(a.id)}">
+        <label class="full"><span class="field-label">Name</span>
+          <input id="bill-name-${o(a.id)}" type="text" data-bill-field="name" maxlength="80" value="${o(a.name)}" />
+        </label>
+        <div class="item-grid">
+          <label><span class="field-label">Amount (USD)</span>
+            <input id="bill-amt-${o(a.id)}" type="text" inputmode="decimal" autocomplete="off" data-bill-field="amount" value="${o(h(a.amountCents))}" />
+          </label>
+          <label><span class="field-label">Due day (1–31)</span>
+            <input id="bill-due-${o(a.id)}" type="text" inputmode="numeric" autocomplete="off" data-bill-field="dueDay" value="${a.dueDay}" />
+          </label>
+        </div>
+        <button type="button" class="ghost" data-action="delete-bill" data-id="${o(a.id)}">Remove bill</button>
+      </div>`).join(""),n=t.bills.length>=C;return`<section class="card no-print">
+    <h2>Monthly bills</h2>
+    <p class="hint">Due days 29–31 use the last day in shorter months. Max ${C}.</p>
+    ${e||'<p class="empty">No monthly bills yet.</p>'}
+    <form data-form="add-bill">
+      <label><span class="field-label">New bill name</span>
+        <input id="new-bill-name" type="text" name="name" maxlength="80" ${n?"disabled":""} />
+      </label>
+      <div class="item-grid">
+        <label><span class="field-label">Amount (USD)</span>
+          <input id="new-bill-amount" type="text" name="amount" inputmode="decimal" autocomplete="off" ${n?"disabled":""} />
+        </label>
+        <label><span class="field-label">Due day (1–31)</span>
+          <input id="new-bill-due" type="text" name="dueDay" inputmode="numeric" autocomplete="off" ${n?"disabled":""} />
+        </label>
+      </div>
+      <button class="secondary" type="submit" ${n?"disabled":""}>Add bill</button>
+    </form>
+  </section>`}function pe(t){const e=t.sinkingFunds.map(a=>`<div class="item" data-fund-id="${o(a.id)}">
+        <label class="full"><span class="field-label">Name</span>
+          <input id="fund-name-${o(a.id)}" type="text" data-fund-field="name" maxlength="80" value="${o(a.name)}" />
+        </label>
+        <label><span class="field-label">Each paycheck (USD)</span>
+          <input id="fund-amt-${o(a.id)}" type="text" inputmode="decimal" autocomplete="off" data-fund-field="amount" value="${o(h(a.amountCents))}" />
+        </label>
+        <button type="button" class="ghost" data-action="delete-fund" data-id="${o(a.id)}">Remove set-aside</button>
+      </div>`).join(""),n=t.sinkingFunds.length>=I;return`<section class="card no-print">
+    <h2>Set aside each paycheck</h2>
+    <p class="hint">Taken from every paycheck. No targets or running balances. Max ${I}.</p>
+    ${e||'<p class="empty">Nothing set aside yet.</p>'}
+    <form data-form="add-fund">
+      <label><span class="field-label">New set-aside name</span>
+        <input id="new-fund-name" type="text" name="name" maxlength="80" ${n?"disabled":""} />
+      </label>
+      <label><span class="field-label">Each paycheck (USD)</span>
+        <input id="new-fund-amount" type="text" name="amount" inputmode="decimal" autocomplete="off" ${n?"disabled":""} />
+      </label>
+      <button class="secondary" type="submit" ${n?"disabled":""}>Add set-aside</button>
+    </form>
+  </section>`}function N(){return'<footer class="disclaimer">Budget data you enter into this tool is stored locally in your browser and is not intentionally transmitted to us. This tool is for personal budgeting and informational purposes only and is not financial advice.</footer>'}function ye(){return`<section class="card no-print">
+    <h2>Save / print</h2>
+    <p class="hint">This keeps your numbers if you switch phones or clear the browser.</p>
+    <div class="actions">
+      <button type="button" class="secondary" data-action="print">Print one-page summary</button>
+      <button type="button" class="secondary" data-action="export">Save a copy</button>
+      <button type="button" class="secondary" data-action="import">Open a saved copy</button>
+      <input id="import-file" type="file" accept="application/json,.json" hidden />
+    </div>
+    ${s.confirmClear?`<div class="confirm-box">
+        <p>This deletes paycheck, bills, and set-asides from this browser.</p>
+        <div class="actions">
+          <button type="button" class="danger" data-action="clear-confirm">Delete everything</button>
+          <button type="button" class="secondary" data-action="clear-cancel">Keep my data</button>
+        </div>
+      </div>`:'<button type="button" class="ghost" data-action="clear-start">Clear all data</button>'}
+  </section>`}function be(){const t=re(k);t&&(s.state=t,s.payDraft={cadence:t.cadence,lastPayday:t.lastPayday,incomeText:h(t.incomeCents)},s.screen="main"),u()}g.addEventListener("click",t=>{var a;const e=t.target;if(!(e instanceof HTMLElement))return;const n=e.dataset.action;if(n){if(n==="setup-cadence"||n==="main-cadence"){const r=e.dataset.cadence;if(!r)return;if(n==="setup-cadence"){s.setupCadence=r,s.error="",u();return}if(!s.state)return;E({...S(s.state),cadence:r});return}if(n==="print"){window.print();return}if(n==="export"){if(!s.state)return;const r=new Blob([le(s.state)],{type:"application/json"}),i=URL.createObjectURL(r),l=document.createElement("a");l.href=i,l.download="paycheck-flow.json",l.click(),URL.revokeObjectURL(i);return}if(n==="import"){(a=document.getElementById("import-file"))==null||a.click();return}if(n==="clear-start"){s.confirmClear=!0,u();return}if(n==="clear-cancel"){s.confirmClear=!1,u();return}if(n==="clear-confirm"){ie(k),s.state=null,s.payDraft=null,s.screen="setup",s.setupCadence="",s.setupPayday="",s.setupIncome="",s.confirmClear=!1,s.error="",s.notice="",u();return}if(n==="delete-bill"&&s.state){const r=e.dataset.id;d({...s.state,bills:s.state.bills.filter(i=>i.id!==r)}),u();return}if(n==="delete-fund"&&s.state){const r=e.dataset.id;d({...s.state,sinkingFunds:s.state.sinkingFunds.filter(i=>i.id!==r)}),u()}}});g.addEventListener("change",t=>{var n;const e=t.target;if(e instanceof HTMLInputElement){if(e.id==="setup-payday"){s.setupPayday=e.value;return}if(e.id==="setup-income"){s.setupIncome=e.value;return}if(e.id==="import-file"){const a=(n=e.files)==null?void 0:n[0];if(e.value="",!a)return;const r=new FileReader;r.onload=()=>{const i=typeof r.result=="string"?r.result:"",l=ue(k,i);if(!l.ok){s.notice="Could not open that copy. Your current numbers were not changed.",u();return}d(l.state),s.notice="Opened saved copy.",s.error="",s.screen="main",u()},r.readAsText(a);return}if(e.dataset.field==="lastPayday"&&s.state){E({...S(s.state),lastPayday:e.value});return}if(e.dataset.field==="income"&&s.state){E({...S(s.state),incomeText:e.value});return}if(e.dataset.billField&&s.state){const a=e.closest("[data-bill-id]"),r=a instanceof HTMLElement?a.dataset.billId:void 0;if(!r)return;const i=s.state.bills.map(l=>l.id===r?he(l,e.dataset.billField,e.value):l);if(i.some(l=>l===null)){s.error="Check the bill name, amount, and due day (1–31).",u();return}s.error="",d({...s.state,bills:i}),u();return}if(e.dataset.fundField&&s.state){const a=e.closest("[data-fund-id]"),r=a instanceof HTMLElement?a.dataset.fundId:void 0;if(!r)return;const i=s.state.sinkingFunds.map(l=>l.id===r?ge(l,e.dataset.fundField,e.value):l);if(i.some(l=>l===null)){s.error="Check the set-aside name and amount.",u();return}s.error="",d({...s.state,sinkingFunds:i}),u()}}});g.addEventListener("submit",t=>{t.preventDefault();const e=t.target;if(!(e instanceof HTMLFormElement))return;const n=e.dataset.form;if(n==="setup"){if(!s.setupCadence){s.error="Choose how often you are paid.",u();return}const a=e.elements.namedItem("lastPayday").value,r=e.elements.namedItem("income").value;if(s.setupPayday=a,s.setupIncome=r,!a){s.error="Enter your last payday.",u();return}if(!b(s.setupCadence,a)){s.error=$(s.setupCadence),u();return}const i=y(r);if(i===null){s.error="Enter a valid dollar amount.",u();return}d({schemaVersion:1,cadence:s.setupCadence,lastPayday:a,incomeCents:i,bills:[],sinkingFunds:[]}),s.screen="main",s.error="",u();return}if(n==="add-bill"&&s.state){if(s.state.bills.length>=C)return;const a=e.elements.namedItem("name").value.trim(),r=y(e.elements.namedItem("amount").value),i=Number.parseInt(e.elements.namedItem("dueDay").value,10);if(!a||r===null||!Number.isInteger(i)||i<1||i>31){s.error="Add a bill name, amount, and due day from 1 to 31.",u();return}s.error="",d({...s.state,bills:[...s.state.bills,{id:L(),name:a,amountCents:r,dueDay:i}]}),u();return}if(n==="add-fund"&&s.state){if(s.state.sinkingFunds.length>=I)return;const a=e.elements.namedItem("name").value.trim(),r=y(e.elements.namedItem("amount").value);if(!a||r===null){s.error="Add a set-aside name and amount.",u();return}s.error="",d({...s.state,sinkingFunds:[...s.state.sinkingFunds,{id:L(),name:a,amountCents:r}]}),u()}});function he(t,e,n){if(e==="name"){const a=n.trim();return a?{...t,name:a}:null}if(e==="amount"){const a=y(n);return a===null?null:{...t,amountCents:a}}if(e==="dueDay"){const a=Number.parseInt(n,10);return!Number.isInteger(a)||a<1||a>31?null:{...t,dueDay:a}}return null}function ge(t,e,n){if(e==="name"){const a=n.trim();return a?{...t,name:a}:null}if(e==="amount"){const a=y(n);return a===null?null:{...t,amountCents:a}}return null}be();</script>
+  </body>
+</html>
